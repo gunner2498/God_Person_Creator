@@ -1,9 +1,12 @@
 package gunn.god_person_creator;
 /*
-Put header here
-
-
+Name; Gavin Gunn
+Class; Grade 12 Com Studies
+Date; 01/12/21
+Assignment#; 3
+Description; Person controller
  */
+
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,16 +17,14 @@ import javafx.scene.control.Label;
 
 public class FXMLController implements Initializable {
     
-    @FXML
-    private Label lblOut;
     
-    @FXML
-    private void btnClickAction(ActionEvent event) {
-        lblOut.setText("Hello World!");
+    @FXML //exit button
+    void exitClick(ActionEvent event) {
+        System.exit(0);
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+      
     }    
 }

@@ -9,15 +9,30 @@ package gunn.god_person_creator;
 
 public class Person {
 
+   
+    
+    
     private String name;
-    private int age;
-    private double height;
-    private String job;
-    private double weight;
-    private String education;
-    private boolean devAccess = false;
+    private String classPlayer;
+    private int strength;
+    private int magic;
+    private int intelligence;
+    private int speed;
+    private boolean devAccess;
+    
 
-    public Person() {
+    public Person() { //Default positions
+       
+       
+    
+    name = " ";
+    classPlayer = " ";
+    strength = 0;
+    magic = 0;
+    intelligence = 0;
+    speed = 0;
+    devAccess = false;   
+     
        
    }
     
@@ -25,52 +40,56 @@ public class Person {
         return name;
     }
 
-    public int getAge() {
-        return age;
+    public String getClassPlayer() {
+        return classPlayer;
     }
 
-    public double getHeight() {
-        return height;
+    public int getStrength() {
+        return strength;
     }
 
-    public String getJob() {
-        return job;
+    public int getMagic() {
+        return magic;
     }
 
-    public double getWeight() {
-        return weight;
+    public int getIntelligence() {
+        return intelligence;
     }
 
-    public String getEducation() {
-        return education;
+    public int getSpeed() {
+        return speed;
     }
 
-    public void setName(String nName) {
-        name = nName;
+    public void setName(String newName) {
+        name = newName;
     }
 
-    public void setAge(int nAge) {
-        age = nAge;
+    public void setClassPlayer(String newClassPlayer) {
+        classPlayer = newClassPlayer;
     }
 
-    public void setHeight(double nHeight) {
-        height = nHeight;
+    public void setHeight(int newStrength) {
+        strength = newStrength;
     }
 
-    public void setJob(String nJob) {
-        job = nJob;
+    public void setJob(int newMagic) {
+        magic = newMagic;
     }
 
-    public void setWeight(double nWeight) {
-        weight = nWeight;
+    public void setWeight(int newIntelligence) {
+        intelligence = newIntelligence;
     }
 
-    public void setEducation(String nEducation) {
-        education = nEducation;
+    public void setEducation(int newSpeed) {
+        speed = newSpeed;
     }
     
     public boolean accessLocked() {
        return devAccess;
    }
 
+    
+    
+    
+    
 }

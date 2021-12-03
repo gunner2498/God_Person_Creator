@@ -9,6 +9,7 @@ Description; Person controller
 
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +18,7 @@ import javafx.scene.control.Label;
 
 public class FXMLController implements Initializable {
     
+    ArrayList<Person> list = new ArrayList();  //ArrayList of the custom object
     
     @FXML //exit button
     void exitClick(ActionEvent event) {

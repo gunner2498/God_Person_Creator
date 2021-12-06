@@ -21,19 +21,16 @@ public class Person {
     private boolean devAccess;
     
 
-    public Person() { //Default positions
-       
-       
     
-    name = " ";
-    classPlayer = " ";
-    strength = 0;
-    magic = 0;
-    intelligence = 0;
-    speed = 0;
-    devAccess = false;   
-     
-       
+       //Person= combo
+    public Person (String N, String C, int S,int M,int I,int F)      
+    {
+        setName(N);
+        setClassPlayer(C);
+        setStrength(S);
+        setMagic(M);
+        setIntelligence(I);
+        setSpeed(F);
    }
     
     public String getName() {
@@ -68,19 +65,19 @@ public class Person {
         classPlayer = newClassPlayer;
     }
 
-    public void setHeight(int newStrength) {
+    public void setStrength(int newStrength) {
         strength = newStrength;
     }
 
-    public void setJob(int newMagic) {
+    public void setMagic(int newMagic) {
         magic = newMagic;
     }
 
-    public void setWeight(int newIntelligence) {
+    public void setIntelligence(int newIntelligence) {
         intelligence = newIntelligence;
     }
 
-    public void setEducation(int newSpeed) {
+    public void setSpeed(int newSpeed) {
         speed = newSpeed;
     }
     

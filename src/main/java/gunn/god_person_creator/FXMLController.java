@@ -23,70 +23,30 @@ import javafx.scene.layout.AnchorPane;
 public class FXMLController implements Initializable {
 
     @FXML
-    private Button btnUpdate;
-    @FXML
-    private Button btnPersonEdit;
+    private Button btnUpdate, btnPersonEdit;
 
     @FXML
     private AnchorPane apnWall;
 
     @FXML
-    private Button btnEdit;
-
-    @FXML
-    private Label lblName;
-
-    @FXML
-    private Label lblOut;
-
-    @FXML
-    private Label lblclassPlayer;
-
-    @FXML
     private Label lblgameBrain;
-
-    @FXML
-    private Label lblintelligence;
-
-    @FXML
-    private Label lblmagic;
-
-    @FXML
-    private Label lblspeed;
-
-    @FXML
-    private Label lblstrength;
 
     @FXML
     private ListView lstBox;
 
     @FXML
-    private TextField txt1;
-
-    @FXML
-    private TextField txt2;
-
-    @FXML
-    private TextField txt3;
-
-    @FXML
-    private TextField txt4;
-
-    @FXML
-    private TextField txt5;
-
-    @FXML
-    private TextField txt6;
-
-    @FXML
-    private TextField txtdevCheck;
+    private TextField txt1, txt2, txt3, txt4, txt5, txt6, txtdevCheck;
 
     boolean devAccess;
 
     ArrayList<Person> list = new ArrayList();  //ArrayList of the custom object
 
+    public FXMLController() {
+        this.devAccess = false;
+    }
+
     @FXML
-    void devClick(ActionEvent event) {
+    void devClick(ActionEvent event) { //Enters/exits dev mode, various UI changes, access to character editor, password code
 
         if (txtdevCheck.getText().equals("Kyber") && devAccess == false) {
             apnWall.setStyle("-fx-background-color: #E53935");
@@ -112,15 +72,14 @@ public class FXMLController implements Initializable {
 
     }
 
-    void listUpdate() {
-        //Updates the listBox
+    void listUpdate() { //Updates the listBox
         lstBox.getItems().clear();  //clears the list each time so it can be reset from the arrayList
         for (int i = 0; i < list.size(); i++) {
             lstBox.getItems().add("Name: " + list.get(i).getName() + ", " + "Player Class: " + list.get(i).getClassPlayer() + ", " + "Strength: " + list.get(i).getStrength() + ", " + "Magic: " + list.get(i).getMagic() + ", " + "Intelligence: " + list.get(i).getIntelligence() + ", " + "Speed: " + list.get(i).getSpeed() + " ");  //adds each lock to the listbox with i being arraylist index
         }
     }
 
-    @FXML
+    @FXML //Saves characters made
     void saveClick(ActionEvent event) {
         list.add(new Person((txt1.getText()), (txt2.getText()), Integer.parseInt(txt3.getText()), Integer.parseInt(txt4.getText()), Integer.parseInt(txt5.getText()), Integer.parseInt(txt6.getText())));
         listUpdate();
@@ -143,11 +102,12 @@ public class FXMLController implements Initializable {
         txt6.setText("" + list.get(selectedIndex).getSpeed());
     }
 
-    @FXML
-    void updateClick(ActionEvent event) { //Not updating
+    @FXML //removes and re adds character with updated info
+    void updateClick(ActionEvent event) { 
         int selectedIndex = lstBox.getSelectionModel().getSelectedIndex();
-        list.add(new Person((txt1.getText()), (txt2.getText()), Integer.parseInt(txt3.getText()), Integer.parseInt(txt4.getText()), Integer.parseInt(txt5.getText()), Integer.parseInt(txt6.getText()))); //This guy doesnt work
-
+        list.remove(selectedIndex);
+        list.add(new Person((txt1.getText()), (txt2.getText()), Integer.parseInt(txt3.getText()), Integer.parseInt(txt4.getText()), Integer.parseInt(txt5.getText()), Integer.parseInt(txt6.getText()))); 
+        listUpdate();
     }
 
     @FXML //exit button
@@ -157,8 +117,8 @@ public class FXMLController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        btnPersonEdit.setVisible(false);
+        btnPersonEdit.setVisible(false); //invisibilty locked behind dev access
         btnUpdate.setVisible(false);
-        boolean devAccess = false;
+        
     }
 }

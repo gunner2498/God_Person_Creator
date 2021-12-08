@@ -9,9 +9,6 @@ package gunn.god_person_creator;
 
 public class Person {
 
-   
-    
-    
     private String name;
     private String classPlayer;
     private int strength;
@@ -19,20 +16,17 @@ public class Person {
     private int intelligence;
     private int speed;
     private boolean devAccess;
-    
 
-    
-       //Person= combo
-    public Person (String N, String C, int S,int M,int I,int F)      
-    {
+    public Person(String N, String C, int S, int M, int I, int F) { //Creating strings/ints for public access
         setName(N);
         setClassPlayer(C);
         setStrength(S);
         setMagic(M);
         setIntelligence(I);
         setSpeed(F);
-   }
-    
+    }
+
+    //For comunication between FXML and the custom object
     public String getName() {
         return name;
     }
@@ -80,13 +74,9 @@ public class Person {
     public void setSpeed(int newSpeed) {
         speed = newSpeed;
     }
-    
-    public boolean accessLocked() {
-       return devAccess;
-   }
 
-    
-    
-    
-    
+    public boolean accessLocked() {
+        return devAccess;
+    }
+
 }
